@@ -1,64 +1,71 @@
-<!DOCTYPE html>
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Custom Event Test</title>
-
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/require.js"></script>
-    <script type="text/javascript">
-      (function () {
-        var config = {
-          baseUrl: "",
-        };
-
-        var dependencies = ["customEvent"];
-
-        require(config, dependencies);
-      })();
-    </script>
-
-    <!--Styles-->
-    <style type="text/css">
-      body {
-        padding: 15px;
-        margin: 0;
+{
+  "workflowApiVersion": "1.1",
+  "metaData": {
+    "icon": "images/icon.png",
+    "transactionKeys": {
+      "0": {
+        "from": "Event Property",
+        "to": "DE_Name.DE_Property"
       }
-      h1 {
-        font-size: 16px;
+    }
+  },
+  "type": "Event",
+  "lang": {
+    "en-US": {
+      "name": "Event (Workflow API v1.1)",
+      "description": "An example event using workflow API v1.1 format.",
+      "selectCountry": "Select Country",
+      "enterFirstName": "Enter First Name",
+      "enterLastName": "Enter Last Name",
+      "enterFavoriteFood": "Enter Favorite Food",
+      "countryCodeLabel": "Country Code",
+      "firstNameLabel": "First Name",
+      "lastNameLabel": "Last Name",
+      "favoriteFoodLabel": "Favorite Food",
+      "selectTransactionKeyMapping": "Transaction Key"
+    }
+  },
+  "configurationArguments": {},
+  "filterExpressionEnabled": false,
+  "wizardSteps": [
+    { "key": "selectCountry", "label": "selectCountry" },
+    { "key": "enterFirstName", "label": "enterFirstName" },
+    { "key": "enterLastName", "label": "enterLastName" },
+    {
+      "key": "enterFavoriteFood",
+      "label": "enterFavoriteFood",
+      "active": false
+    },
+    {
+      "key": "selectTransactionKeyMapping",
+      "label": "selectTransactionKeyMapping"
+    }
+  ],
+  "userInterfaces": {
+    "configModal": {
+      "url": "index.html"
+    },
+    "summary": [
+      {
+        "valuePath": "arguments.countryCode",
+        "label": "countryCodeLabel"
+      },
+      {
+        "valuePath": "arguments.firstName",
+        "label": "firstNameLabel"
+      },
+      {
+        "valuePath": "arguments.lastName",
+        "label": "lastNameLabel"
+      },
+      {
+        "valuePath": "arguments.favoriteFood",
+        "label": "favoriteFoodLabel"
+      },
+      {
+        "valuePath": "metaData.transactionKeys",
+        "label": "Transaction Key"
       }
-      .step {
-        display: none;
-      }
-      #step1 {
-        display: block;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="step1" class="step">
-      <h1>Step 1: Country Code</h1>
-      <select id="select-country-code">
-        <option value="US">United States</option>
-        <option value="GB">United Kingdom</option>
-        <option value="BR">Brazil</option>
-        <option value="DE">Germany</option>
-      </select>
-      <br />
-      <button id="toggleLastStep">Toggle Favorite Food Step</button>
-    </div>
-    <div id="step2" class="step">
-      <h1>Step 2: First Name</h1>
-      <input id="select-first-name" />
-    </div>
-    <div id="step3" class="step">
-      <h1>Step 3: Last Name</h1>
-      <input id="select-last-name" />
-    </div>
-    <div id="step4" class="step">
-      <h1>Step 4: Favorite Food</h1>
-      <input id="select-favorite-food" />
-    </div>
-  </body>
-</html>
+    ]
+  }
+}
