@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Custom Journey Builder Activity</title>
+    <title>Custom Event Test</title>
+
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/require.js"></script>
     <script type="text/javascript">
@@ -10,15 +12,21 @@
         var config = {
           baseUrl: "",
         };
-        var dependencies = ["customActivity"];
+
+        var dependencies = ["customEvent"];
+
         require(config, dependencies);
       })();
     </script>
+
     <!--Styles-->
     <style type="text/css">
       body {
-        padding: 20px;
+        padding: 15px;
         margin: 0;
+      }
+      h1 {
+        font-size: 16px;
       }
       .step {
         display: none;
@@ -30,26 +38,27 @@
   </head>
   <body>
     <div id="step1" class="step">
-      Select your SMS message:
-      <select id="select1">
-        <option value="">Select an option</option>
-        <option value="someMessage">Some SMS</option>
-        <option value="anotherMessage">Another SMS</option>
-        <option value="thirdMessage">Third SMS</option>
-        <option value="unknownMessage">Unknown SMS</option>
+      <h1>Step 1: Country Code</h1>
+      <select id="select-country-code">
+        <option value="US">United States</option>
+        <option value="GB">United Kingdom</option>
+        <option value="BR">Brazil</option>
+        <option value="DE">Germany</option>
       </select>
-      <button id="toggleLastStep">Toggle Last Step</button>
+      <br />
+      <button id="toggleLastStep">Toggle Favorite Food Step</button>
     </div>
     <div id="step2" class="step">
-      Here's a second page with some info on it.
+      <h1>Step 2: First Name</h1>
+      <input id="select-first-name" />
     </div>
     <div id="step3" class="step">
-      You chose the message:
-      <div id="message"></div>
+      <h1>Step 3: Last Name</h1>
+      <input id="select-last-name" />
     </div>
     <div id="step4" class="step">
-      Hey, here's a fourth step, just for you. Toggle this on or off from step
-      1.
+      <h1>Step 4: Favorite Food</h1>
+      <input id="select-favorite-food" />
     </div>
   </body>
 </html>
